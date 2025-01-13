@@ -6,19 +6,23 @@ import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
+{
+    title: "صفحة البداية",
+    path: "/",
+  },
   {
      
     title: "الأقسام",
     path: "#",
     children: [
-      { title: "المستوصف", path: "/" },
+      { title: "المستوصف", path: "#" },
       { title: "مركز الجمعية", path: "#" },
       { title: "روضة الدوحة", path: "#" },
       
     ],
   },
   {
-    title: "حول الجمعية",
+    title: "أخبار الجمعية",
     path: "#",
   },
   {
@@ -26,9 +30,10 @@ const menuitems = [
     path: "/contact",
   },
   {
-    title: "المدونة",
+    title: "حول الجمعية",
     path: "#",
   },
+  
   
   
 ];
