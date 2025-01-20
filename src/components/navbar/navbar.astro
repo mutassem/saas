@@ -7,17 +7,22 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
 {
-    title: "الرئيسية",
-    path: "/",
+    title: "حول الجمعية",
+    path: "/about",
+    children:[
+      { title: "كلمة رئيس مجلس الأمناء", path: "/message"},
+      { title: "مجلس الجمعية", path: "/members"},
+    ]
   },
-  {
-     
+  { 
     title: "الأقسام",
     path: "#",
     children: [
       { title: "مركز الجمعية", path: "#" },
-      { title: "المستوصف", path: "#" },
+      { title: "المركز الطبي", path: "/med" },
       { title: "روضة الدوحة", path: "#" },
+      { title: "صالة الجمعية", path: "/hall" },
+      { title: "المقبرة", path: "#" },
       
     ],
   },
@@ -25,10 +30,7 @@ const menuitems = [
     title: "أخبار الجمعية",
     path: "/blog",
   },
-  {
-    title: "حول الجمعية",
-    path: "/about",
-  },
+ 
   {
     title: "تواصل معنا",
     path: "/contact",
@@ -39,17 +41,21 @@ const menuitems = [
   
 ];
 ---
- 
+
+
 <Container>
-  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+  <header class="flex flex-col lg:flex-row justify-between items-center my-5  gap-x-4">
+    <a href="/" class="flex items-center gap-x-4">
+    <img src="/ch.png" data-src="" alt="qatchar" width="128" height="128" style="width: 128px" gap-x-4 class="lazyDone" />
+    </a>
     <Astronav>
-      <div class="flex w-full lg:w-auto items-center justify-between">
+      <div class="flex w-full lg:w-auto lg:ml-14 place-items-end justify-between lg:text-[6rem] bg-gray-100">
         
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />
         </div>
       </div>
-      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0 items-end">
         <ul class="flex flex-col lg:flex-row lg:gap-3">
           {
             menuitems.map((item, index) => (
@@ -66,7 +72,7 @@ const menuitems = [
                   <li>
                     <a
                       href={item.path}
-                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
+                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900 items-end">
                       <span> {item.title}</span>
                       {item.badge && (
                         <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
